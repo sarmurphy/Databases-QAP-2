@@ -43,3 +43,18 @@ INSERT INTO students (first_name, last_name, email, school_enrollment_date) VALU
 ('Chloe', 'Baker', 'chloe.baker@example.com', '2024-01-15'),
 ('Sarah', 'Murphy', 'sarah.murphy@example.com', '2024-02-14'),
 ('Matt', 'Mills', 'matt.mills@example.com', '2024-07-18');
+
+Inserting Professor Information: 
+
+INSERT INTO professors (first_name, last_name, department) VALUES
+('Alan', 'Watson', 'Mathematics'),
+('Mary', 'Yetman', 'Physics'),
+('Brian', 'Cooper', 'English'),
+('Emily', 'Connolly', 'Computer Science');
+
+Inserting Course Information: 
+
+INSERT INTO courses (course_name, course_description, professor_id) VALUES
+('Mathematics 101', 'First Level Mathematics Course', '1'),
+('Physics 101', 'First Level Physics Course', '2'),
+('English 101', 'First Level English Course', '3');
