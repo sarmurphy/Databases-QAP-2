@@ -74,7 +74,8 @@ INSERT INTO enrollments (student_id, course_id, enrollment_date) VALUES
 
 Retrieving Full Names of Students in Physics 101:
 
-SELECT first_name || ' ' || last_name AS full_name FROM students
+SELECT first_name || ' ' || last_name AS full_name 
+FROM students
 WHERE id IN (SELECT student_id FROM enrollments WHERE course_id = 2);
 
 Retrieving List of Courses & Professor Full Names:
@@ -88,3 +89,14 @@ Retrieving All Courses with Students Enrolled:
 
 SELECT DISTINCT course_name FROM courses 
 JOIN enrollments ON courses.id = enrollments.course_id;
+
+Updating a Student's Email:
+
+UPDATE students
+SET email = 'john.doe@newemail.com'
+WHERE id = '1';
+
+Removing a Student from a Course:
+
+DELETE FROM enrollments
+WHERE student_id = 5 AND course_id = 4;
