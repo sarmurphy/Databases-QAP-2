@@ -58,3 +58,33 @@ INSERT INTO courses (course_name, course_description, professor_id) VALUES
 ('Mathematics 101', 'First Level Mathematics Course', '1'),
 ('Physics 101', 'First Level Physics Course', '2'),
 ('English 101', 'First Level English Course', '3');
+('Computer Science 101', 'First Level Computer Science Course', '4');
+
+Enrolling Students Into Courses:
+
+INSERT INTO enrollments (student_id, course_id, enrollment_date) VALUES
+('1', '1', '2024-09-05'),
+('1', '2', '2024-09-06'),
+('2', '2', '2024-09-06'),
+('3', '3', '2024-09-10'),
+('4', '2', '2024-09-09'),
+('4', '4', '2024-09-15'),
+('5', '1', '2024-09-05'),
+('5', '4', '2024-09-11');
+
+Retrieving Full Names of Students in Physics 101:
+
+SELECT first_name || ' ' || last_name AS full_name FROM students
+WHERE id IN (SELECT student_id FROM enrollments WHERE course_id = 2);
+
+Retrieving List of Courses & Professor Full Names:
+
+SELECT courses.course_name,
+professors.first_name || ' ' || professors.last_name AS professor_full_name
+FROM courses
+INNER JOIN professors ON courses.professor_id = professors.id;
+
+Retrieving All Courses with Students Enrolled:
+
+SELECT DISTINCT course_name FROM courses 
+JOIN enrollments ON courses.id = enrollments.course_id;
