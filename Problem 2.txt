@@ -71,3 +71,21 @@ INSERT INTO order_items (order_id, product_id, quantity) VALUES
 ('4', '3', '1'),
 ('5', '2', '1'),
 ('5', '5', '2');
+
+Retrieving Product Names and Stock Quantity:
+
+SELECT product_name, stock_quantity FROM products;
+
+Retrieving Product Names and Quantity from Orders Placed:
+
+SELECT products.product_name, order_items.quantity
+FROM order_items
+INNER JOIN products ON order_items.product_id = products.id
+WHERE order_items.order_id = 5;
+
+Retrieving All Orders for a Specfic Customer:
+
+SELECT orders.id, order_items.product_id, order_items.quantity
+FROM orders
+INNER JOIN order_items ON orders.id = order_items.order_id
+WHERE orders.customer_id = 3;
