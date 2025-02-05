@@ -34,11 +34,11 @@ CREATE TABLE order_items (
 Inserting Product Information:
 
 INSERT INTO products (product_name, price, stock_quantity) VALUES
-('Jeans', '59.99', 12),
-('Sweater', '44.99', 8),
-('Shirt', '22.99', 15),
-('Socks', '4.99', 9),
-('Sneakers', '99.99', 7);
+('Jeans', '59', 12),
+('Sweater', '44', 8),
+('Shirt', '22', 15),
+('Socks', '4', 9),
+('Sneakers', '99', 7);
 
 Inserting Customer Information:
 
@@ -89,3 +89,12 @@ SELECT orders.id, order_items.product_id, order_items.quantity
 FROM orders
 INNER JOIN order_items ON orders.id = order_items.order_id
 WHERE orders.customer_id = 3;
+
+Reducing Stock Quantities when a Customer Makes an Order:
+
+
+
+Removing an Order and Associated Items:
+
+DELETE FROM order_items WHERE order_id = 2;
+DELETE FROM orders WHERE id = 2;
