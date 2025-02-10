@@ -91,7 +91,7 @@ INNER JOIN order_items ON orders.id = order_items.order_id
 WHERE orders.customer_id = 3;
 
 Reducing Stock Quantities when a Customer Makes an Order:
-(Reducing stock of order_id 1, consists of one pair of jeans and two shirts, items in the table go from original number of 12 to 11 (jeans), and 15 to 13 (shirts))
+(Reducing stock of order_id 1, consists of one pair of jeans and two shirts, items in the table go from original number of 12 to 11 (jeans), and 15 to 13 (shirts)). 
 
 UPDATE products
 SET stock_quantity = stock_quantity - (SELECT quantity FROM order_items 
